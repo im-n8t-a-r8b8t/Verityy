@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" href="icon-192.png">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Verity Drop">
+<meta name="theme-color" content="#102E1B">
+<meta name="description" content="Entre ou crie sua conta no Verity Drop, plataforma de monitoramento agrícola e irrigação de precisão.">
+<title>Verity Drop – Entrar</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif}
+:root{--verde:#127e08;--verde-esc:#0d5f06;--creme:#eef0cf;--texto:#1f2d1a;--mudo:#4a5540;--erro:#9b2c1f;--borda:#b9c19a}
+html{-webkit-text-size-adjust:100%}
+body{min-height:100vh;min-height:100dvh;display:grid;place-items:center;padding:max(16px,env(safe-area-inset-top)) max(16px,env(safe-area-inset-right)) max(16px,env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-left));color:var(--texto);
+  background:radial-gradient(900px 520px at 85% -10%,#2f6b3a,transparent),radial-gradient(700px 480px at -10% 110%,#1b4a2a,transparent),#102E1B}
+[hidden]{display:none!important}
+:focus-visible{outline:3px solid #1d5a8a;outline-offset:2px}
+
+.login-container{display:grid;grid-template-columns:1.1fr 1fr;width:min(920px,100%);min-height:560px;border-radius:20px;overflow:hidden;background:var(--creme);box-shadow:0 24px 48px -16px rgba(0,0,0,.6)}
+
+/* Lado esquerdo */
+.login-left{position:relative;color:#fff;padding:44px;display:flex;flex-direction:column;justify-content:center;background:#173a22 url('agricultura-inteligente-iot-com-fundo-de-arvore-de-plantio-a-mao_53876-124627.avif') center/cover no-repeat}
+.login-left::before{content:'';position:absolute;inset:0;background:linear-gradient(to bottom right,rgba(18,126,8,.62),rgba(0,0,0,.82))}
+.login-left-content{position:relative;z-index:1}
+.logo{display:flex;align-items:center;gap:12px;font-weight:700;font-size:18px;letter-spacing:1.5px;margin-bottom:40px}
+.logo-icon{width:44px;height:44px;border-radius:50%;background:#fff url('Verity_normal.svg.webp') center/cover no-repeat}
+.login-left h1{font-size:clamp(30px,4.4vw,42px);line-height:1.1;margin-bottom:18px}
+.login-left p{font-size:16px;line-height:1.6;max-width:30ch;color:#f1f5ee}
+
+/* Lado direito */
+.login-right{padding:48px clamp(24px,5vw,44px);display:flex;flex-direction:column;justify-content:center}
+.form-section{display:flex;flex-direction:column;animation:entra .35s ease both}
+@keyframes entra{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.form-section h2{font-size:26px;margin-bottom:6px}
+.intro{color:var(--mudo);font-size:15px;line-height:1.5;margin-bottom:22px}
+.campo{margin-bottom:18px}
+.campo label{display:block;font-size:14px;font-weight:600;margin-bottom:6px}
+.campo input{width:100%;min-height:48px;padding:12px 14px;font-size:16px;color:var(--texto);background:#fff;border:1.5px solid var(--borda);border-radius:10px;transition:border-color .2s,box-shadow .2s}
+.campo input::placeholder{color:#76806a}
+.campo input:focus{outline:none;border-color:var(--verde-esc);box-shadow:0 0 0 3px rgba(18,126,8,.25)}
+.dica{display:block;color:var(--mudo);font-size:13px;margin-top:6px}
+.senha{position:relative}
+.senha input{padding-right:52px}
+.olho{position:absolute;right:4px;top:50%;transform:translateY(-50%);width:44px;height:44px;border:none;background:none;border-radius:8px;color:var(--mudo);cursor:pointer;display:grid;place-items:center}
+.olho:hover{color:var(--verde-esc)}
+.olho svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+.opcoes{display:flex;justify-content:space-between;align-items:center;gap:10px 16px;flex-wrap:wrap;font-size:14px;margin-bottom:24px}
+.lembrar{display:flex;align-items:center;gap:8px;min-height:32px;cursor:pointer}
+.lembrar input{width:18px;height:18px;accent-color:var(--verde)}
+.link{background:none;border:none;color:var(--verde-esc);font-weight:600;font-size:14px;text-decoration:underline;text-underline-offset:3px;cursor:pointer;min-height:32px}
+.link:hover{color:#084403}
+.botoes{display:flex;flex-direction:column;gap:12px}
+.btn{width:100%;min-height:50px;padding:12px 24px;border-radius:10px;cursor:pointer;font-weight:700;font-size:16px;border:2px solid transparent;transition:background .2s,color .2s,transform .15s}
+.btn:active{transform:scale(.99)}
+.btn-primary{background:var(--verde);color:#fff}
+.btn-primary:hover{background:var(--verde-esc)}
+.btn-secondary{background:transparent;color:var(--verde-esc);border-color:var(--verde-esc)}
+.btn-secondary:hover{background:var(--verde-esc);color:#fff}
+.btn:disabled{opacity:.65;cursor:wait}
+
+.msg{padding:12px 14px;border-radius:10px;font-size:14px;line-height:1.45;margin-bottom:18px;border:1px solid}
+.msg.erro{background:#fbe9e6;color:var(--erro);border-color:#e3b3ab}
+.msg.ok{background:#e4f3e0;color:#14551a;border-color:#a8d3a0}
+
+@media(max-width:760px){
+  body{place-items:start center;padding:12px}
+  .login-container{grid-template-columns:1fr;min-height:0}
+  .login-left{padding:22px 24px}
+  .logo{margin-bottom:16px}
+  .login-left h1{margin-bottom:0;font-size:28px}
+  .login-left p{display:none}
+  .login-right{padding:28px 22px 32px}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<main class="login-container">
+  <section class="login-left" aria-label="Apresentação">
+    <div class="login-left-content">
+      <div class="logo"><div class="logo-icon" role="img" aria-label="Logotipo Verity Drop"></div>VERITY DROP</div>
+      <h1 id="painel-titulo">Bem-vindo!</h1>
+      <p>Plataforma inteligente para monitoramento agrícola e controle de precisão hídrica.</p>
+    </div>
+  </section>
+
+  <section class="login-right">
+    <div id="msg" class="msg" role="alert" hidden></div>
+
+    <form id="form-login" class="form-section" novalidate>
+      <h2>Fazer login</h2>
+      <p class="intro">Acesse suas plantações e o painel de irrigação.</p>
+      <div class="campo"><label for="login-email">E-mail</label>
+        <input id="login-email" name="email" type="email" autocomplete="username" inputmode="email" autocapitalize="none" spellcheck="false" placeholder="voce@exemplo.com" required></div>
+      <div class="campo"><label for="login-password">Senha</label>
+        <div class="senha"><input id="login-password" name="password" type="password" autocomplete="current-password" required>
+          <button type="button" class="olho" data-olho="login-password" aria-label="Mostrar senha" aria-pressed="false"></button></div></div>
+      <div class="opcoes">
+        <label class="lembrar"><input type="checkbox" id="lembrar" checked> Lembrar-me neste dispositivo</label>
+        <button type="button" class="link" data-ir="recuperar">Esqueceu a senha?</button>
+      </div>
+      <div class="botoes">
+        <button type="submit" class="btn btn-primary">Entrar</button>
+        <button type="button" class="btn btn-secondary" data-ir="cadastro">Criar nova conta</button>
+      </div>
+    </form>
+
+    <form id="form-cadastro" class="form-section" novalidate hidden>
+      <h2>Criar conta</h2>
+      <p class="intro">Leva menos de um minuto.</p>
+      <div class="campo"><label for="cad-nome">Nome completo</label>
+        <input id="cad-nome" name="name" type="text" autocomplete="name" required></div>
+      <div class="campo"><label for="cad-email">E-mail</label>
+        <input id="cad-email" name="email" type="email" autocomplete="email" inputmode="email" autocapitalize="none" spellcheck="false" placeholder="voce@exemplo.com" required></div>
+      <div class="campo"><label for="cad-password">Crie uma senha</label>
+        <div class="senha"><input id="cad-password" name="new-password" type="password" autocomplete="new-password" minlength="6" aria-describedby="dica-senha" required>
+          <button type="button" class="olho" data-olho="cad-password" aria-label="Mostrar senha" aria-pressed="false"></button></div>
+        <span class="dica" id="dica-senha">Mínimo de 6 caracteres.</span></div>
+      <div class="botoes">
+        <button type="submit" class="btn btn-primary">Cadastrar</button>
+        <button type="button" class="btn btn-secondary" data-ir="login">Voltar para o login</button>
+      </div>
+    </form>
+
+    <form id="form-recuperar" class="form-section" novalidate hidden>
+      <h2>Recuperar senha</h2>
+      <p class="intro">Digite seu e-mail. Enviaremos um link para você redefinir a senha.</p>
+      <div class="campo"><label for="recuperar-email">E-mail</label>
+        <input id="recuperar-email" name="email" type="email" autocomplete="email" inputmode="email" autocapitalize="none" spellcheck="false" placeholder="voce@exemplo.com" required></div>
+      <div class="botoes">
+        <button type="submit" class="btn btn-primary">Enviar link de recuperação</button>
+        <button type="button" class="btn btn-secondary" data-ir="login">Voltar para o login</button>
+      </div>
+    </form>
+  </section>
+</main>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/13.1.0/firebase-app.js";
+import {
+  getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, sendPasswordResetEmail,
+  updateProfile, signOut, setPersistence, browserLocalPersistence, browserSessionPersistence
+} from "https://www.gstatic.com/firebasejs/13.1.0/firebase-auth.js";
+
+const app = initializeApp({
+  apiKey: "AIzaSyBKnbHj31dMWbQksHvL_ELM1ZDXRsi24tM",
+  authDomain: "verity-drop.firebaseapp.com",
+  projectId: "verity-drop",
+  storageBucket: "verity-drop.firebasestorage.app",
+  messagingSenderId: "667638308351",
+  appId: "1:667638308351:web:cdb6ebb923ca1d7923dbca"
+});
+const auth = getAuth(app);
+
+const $ = id => document.getElementById(id);
+const msg = $('msg');
+const mostrar = (texto, tipo = 'erro') => { msg.textContent = texto; msg.className = 'msg ' + tipo; msg.hidden = false; };
+const limpar = () => { msg.hidden = true; msg.textContent = ''; };
+
+const ERROS = {
+  "auth/email-already-in-use": "Este e-mail já está cadastrado. Tente fazer login.",
+  "auth/invalid-email": "O endereço de e-mail é inválido.",
+  "auth/weak-password": "A senha é muito fraca. Use pelo menos 6 caracteres.",
+  "auth/operation-not-allowed": "O cadastro por e-mail/senha não está ativado no Firebase (Authentication > Sign-in method).",
+  "auth/network-request-failed": "Falha de conexão. Verifique sua internet.",
+  "auth/too-many-requests": "Muitas tentativas. Aguarde um pouco e tente novamente.",
+  "auth/invalid-credential": "E-mail ou senha incorretos.",
+  "auth/user-not-found": "Não existe conta com este e-mail.",
+  "auth/wrong-password": "Senha incorreta.",
+  "auth/operation-not-supported-in-this-environment": "Abra a página por um servidor (http://localhost ou seu site), não direto do arquivo (file://).",
+  "auth/unauthorized-domain": "Este domínio não está autorizado no Firebase (Authentication > Settings > Authorized domains)."
+};
+const traduzir = e => ERROS[e.code] || ("Erro: " + (e.message || e.code));
+
+async function comCarga(form, fn) {
+  const b = form.querySelector('.btn-primary'), t = b.textContent;
+  b.disabled = true; b.textContent = 'Aguarde…';
+  try { await fn(); } finally { b.disabled = false; b.textContent = t; }
+}
+function falta(id, texto) { mostrar(texto); $(id).focus(); }
+
+/* Troca de formulário */
+const TITULOS = { login: 'Bem-vindo!', cadastro: 'Junte-se a nós!', recuperar: 'Recuperação' };
+function ir(tipo) {
+  ['login', 'cadastro', 'recuperar'].forEach(k => { $('form-' + k).hidden = k !== tipo; });
+  $('painel-titulo').textContent = TITULOS[tipo];
+  limpar();
+  const f = $('form-' + tipo).querySelector('input:not([type=checkbox])'); if (f) f.focus({ preventScroll: true });
+}
+document.addEventListener('click', e => {
+  const go = e.target.closest('[data-ir]'); if (go) { ir(go.dataset.ir); return; }
+  const olho = e.target.closest('[data-olho]');
+  if (olho) {
+    const inp = $(olho.dataset.olho), ver = inp.type === 'password';
+    inp.type = ver ? 'text' : 'password';
+    olho.setAttribute('aria-pressed', ver); olho.setAttribute('aria-label', ver ? 'Ocultar senha' : 'Mostrar senha');
+    olho.innerHTML = ver ? ICON_OFF : ICON_ON;
+  }
+});
+const ICON_ON = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>';
+const ICON_OFF = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.9 17.9A10.6 10.6 0 0 1 12 19C5.6 19 2 12 2 12a18 18 0 0 1 4.1-5M9.9 5.2A9.9 9.9 0 0 1 12 5c6.4 0 10 7 10 7a18 18 0 0 1-2.2 3.2M1 1l22 22M9.9 9.9a3 3 0 0 0 4.2 4.2"/></svg>';
+document.querySelectorAll('[data-olho]').forEach(b => { b.innerHTML = ICON_ON; });
+
+/* Login */
+$('form-login').addEventListener('submit', async e => {
+  e.preventDefault(); limpar();
+  const email = $('login-email').value.trim(), senha = $('login-password').value;
+  if (!email) return falta('login-email', 'Digite seu e-mail.');
+  if (!senha) return falta('login-password', 'Digite sua senha.');
+  await comCarga(e.target, async () => {
+    try {
+      await setPersistence(auth, $('lembrar').checked ? browserLocalPersistence : browserSessionPersistence);
+      await signInWithEmailAndPassword(auth, email, senha);
+      location.href = 'veritydropi.html';
+    } catch (err) { mostrar(traduzir(err)); }
+  });
+});
+
+/* Cadastro */
+$('form-cadastro').addEventListener('submit', async e => {
+  e.preventDefault(); limpar();
+  const nome = $('cad-nome').value.trim(), email = $('cad-email').value.trim(), senha = $('cad-password').value;
+  if (!nome) return falta('cad-nome', 'Digite seu nome completo.');
+  if (!email) return falta('cad-email', 'Digite seu e-mail.');
+  if (senha.length < 6) return falta('cad-password', 'A senha deve ter no mínimo 6 caracteres.');
+  await comCarga(e.target, async () => {
+    try {
+      const cred = await createUserWithEmailAndPassword(auth, email, senha);
+      try { await updateProfile(cred.user, { displayName: nome }); } catch (x) { console.warn('Não foi possível salvar o nome:', x); }
+      await signOut(auth);   // o usuário entra pelo formulário de login
+      ['cad-nome', 'cad-email', 'cad-password'].forEach(i => { $(i).value = ''; });
+      $('login-email').value = email;
+      ir('login');
+      mostrar('Conta criada com sucesso! Entre com seu e-mail e senha.', 'ok');
+      $('login-password').focus({ preventScroll: true });
+    } catch (err) { mostrar(traduzir(err)); }
+  });
+});
+
+/* Recuperação */
+$('form-recuperar').addEventListener('submit', async e => {
+  e.preventDefault(); limpar();
+  const email = $('recuperar-email').value.trim();
+  if (!email) return falta('recuperar-email', 'Digite seu e-mail.');
+  await comCarga(e.target, async () => {
+    try {
+      await sendPasswordResetEmail(auth, email);
+      $('login-email').value = email;
+      ir('login');
+      mostrar('Se houver uma conta com esse e-mail, o link de recuperação foi enviado. Verifique também o spam.', 'ok');
+    } catch (err) { mostrar(traduzir(err)); }
+  });
+});
+
+ir('login');
+$('login-email').blur();
+</script>
+</body>
+</html>
